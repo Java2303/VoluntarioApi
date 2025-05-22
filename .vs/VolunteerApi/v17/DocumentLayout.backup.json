@@ -1,0 +1,208 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|c:\\users\\irisc\\source\\repos\\volunteerapi\\volunteerapi\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|solutionrelative:volunteerapi\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|c:\\users\\irisc\\source\\repos\\volunteerapi\\volunteerapi\\models\\voluntario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|solutionrelative:volunteerapi\\models\\voluntario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|c:\\users\\irisc\\source\\repos\\volunteerapi\\volunteerapi\\dtos\\asignarvoluntarioeventodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|solutionrelative:volunteerapi\\dtos\\asignarvoluntarioeventodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|c:\\users\\irisc\\source\\repos\\volunteerapi\\volunteerapi\\models\\evento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|solutionrelative:volunteerapi\\models\\evento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|c:\\users\\irisc\\source\\repos\\volunteerapi\\volunteerapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|solutionrelative:volunteerapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|c:\\users\\irisc\\source\\repos\\volunteerapi\\volunteerapi\\dtos\\voluntarioeventodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|solutionrelative:volunteerapi\\dtos\\voluntarioeventodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|c:\\users\\irisc\\source\\repos\\volunteerapi\\volunteerapi\\models\\voluntarioevento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|solutionrelative:volunteerapi\\models\\voluntarioevento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|c:\\users\\irisc\\source\\repos\\volunteerapi\\volunteerapi\\controllers\\voluntarioseventoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|solutionrelative:volunteerapi\\controllers\\voluntarioseventoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|c:\\users\\irisc\\source\\repos\\volunteerapi\\volunteerapi\\controllers\\cursoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|solutionrelative:volunteerapi\\controllers\\cursoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|c:\\users\\irisc\\source\\repos\\volunteerapi\\volunteerapi\\models\\curso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|solutionrelative:volunteerapi\\models\\curso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|c:\\users\\irisc\\source\\repos\\volunteerapi\\volunteerapi\\dtos\\usuariocreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1AD4EA20-4209-4B2E-A713-D9B10A99A8F5}|VolunteerApi\\VolunteerApi.csproj|solutionrelative:volunteerapi\\dtos\\usuariocreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Evento.cs",
+              "DocumentMoniker": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Models\\Evento.cs",
+              "RelativeDocumentMoniker": "VolunteerApi\\Models\\Evento.cs",
+              "ToolTip": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Models\\Evento.cs",
+              "RelativeToolTip": "VolunteerApi\\Models\\Evento.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAEwBUAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T15:46:43.901Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Context\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "VolunteerApi\\Context\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Context\\AppDbContext.cs",
+              "RelativeToolTip": "VolunteerApi\\Context\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T15:40:55.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VoluntarioEvento.cs",
+              "DocumentMoniker": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Models\\VoluntarioEvento.cs",
+              "RelativeDocumentMoniker": "VolunteerApi\\Models\\VoluntarioEvento.cs",
+              "ToolTip": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Models\\VoluntarioEvento.cs",
+              "RelativeToolTip": "VolunteerApi\\Models\\VoluntarioEvento.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T15:37:28.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VoluntarioEventoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\DTOs\\VoluntarioEventoDTO.cs",
+              "RelativeDocumentMoniker": "VolunteerApi\\DTOs\\VoluntarioEventoDTO.cs",
+              "ToolTip": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\DTOs\\VoluntarioEventoDTO.cs",
+              "RelativeToolTip": "VolunteerApi\\DTOs\\VoluntarioEventoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T15:38:51.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Voluntario.cs",
+              "DocumentMoniker": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Models\\Voluntario.cs",
+              "RelativeDocumentMoniker": "VolunteerApi\\Models\\Voluntario.cs",
+              "ToolTip": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Models\\Voluntario.cs",
+              "RelativeToolTip": "VolunteerApi\\Models\\Voluntario.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAywCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T15:37:40.806Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "VoluntariosEventosController.cs",
+              "DocumentMoniker": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Controllers\\VoluntariosEventosController.cs",
+              "RelativeDocumentMoniker": "VolunteerApi\\Controllers\\VoluntariosEventosController.cs",
+              "ToolTip": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Controllers\\VoluntariosEventosController.cs",
+              "RelativeToolTip": "VolunteerApi\\Controllers\\VoluntariosEventosController.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAIwHkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T22:16:17.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CursosController.cs",
+              "DocumentMoniker": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Controllers\\CursosController.cs",
+              "RelativeDocumentMoniker": "VolunteerApi\\Controllers\\CursosController.cs",
+              "ToolTip": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Controllers\\CursosController.cs",
+              "RelativeToolTip": "VolunteerApi\\Controllers\\CursosController.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T22:16:14.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Curso.cs",
+              "DocumentMoniker": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Models\\Curso.cs",
+              "RelativeDocumentMoniker": "VolunteerApi\\Models\\Curso.cs",
+              "ToolTip": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\Models\\Curso.cs",
+              "RelativeToolTip": "VolunteerApi\\Models\\Curso.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T22:16:10.113Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UsuarioCreateDTO.cs",
+              "DocumentMoniker": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\DTOs\\UsuarioCreateDTO.cs",
+              "RelativeDocumentMoniker": "VolunteerApi\\DTOs\\UsuarioCreateDTO.cs",
+              "ToolTip": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\DTOs\\UsuarioCreateDTO.cs",
+              "RelativeToolTip": "VolunteerApi\\DTOs\\UsuarioCreateDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T22:16:06.223Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AsignarVoluntarioEventoDTO.cs",
+              "DocumentMoniker": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\DTOs\\AsignarVoluntarioEventoDTO.cs",
+              "RelativeDocumentMoniker": "VolunteerApi\\DTOs\\AsignarVoluntarioEventoDTO.cs",
+              "ToolTip": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\DTOs\\AsignarVoluntarioEventoDTO.cs",
+              "RelativeToolTip": "VolunteerApi\\DTOs\\AsignarVoluntarioEventoDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-26T22:16:04.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\appsettings.json",
+              "RelativeDocumentMoniker": "VolunteerApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\irisc\\source\\repos\\VolunteerApi\\VolunteerApi\\appsettings.json",
+              "RelativeToolTip": "VolunteerApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-24T15:19:51.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
