@@ -54,8 +54,19 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     app.UseSwaggerUI();
 }
 
-// 🔥 APLICAR CORS ANTES DE LOS CONTROLADORES
 app.UseCors("PermitirTodo");
+app.Use(async (context, next) =>
+{
+    if (context.Request.Method == "OPTIONS")
+    {
+        context.Response.StatusCode = 200;
+        await context.Response.CompleteAsync();
+    }
+    else
+    {
+        await next();
+    }
+});
 
 app.UseAuthorization();
 
