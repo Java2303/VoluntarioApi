@@ -13,10 +13,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Configura opciones (por ejemplo, si usás opciones personalizadas como GoogleAI)
+// Configura opciones personalizadas si las tenés
 builder.Services.Configure<GoogleAIOptions>(builder.Configuration.GetSection("GoogleAI"));
 
-// Agrega servicios de controladores con configuración JSON limpia
+// Agrega servicios de controladores y configuración JSON limpia
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
@@ -24,20 +24,20 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
     });
 
-// Registra Swagger (documentación de la API)
+// Registra Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Agrega HttpClientFactory
+// HttpClient
 builder.Services.AddHttpClient();
 
 // Logging
 builder.Services.AddLogging();
 
-// Configura CORS para permitir todo (útil para frontend desplegado en otro dominio)
+// 💥 CORS global
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins", policy =>
+    options.AddPolicy("PermitirTodo", policy =>
     {
         policy.AllowAnyOrigin()
               .AllowAnyMethod()
@@ -47,17 +47,16 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Activa Swagger tanto en desarrollo como en producción
+// Activa Swagger en dev y prod
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// CORS (¡antes de routing!)
-app.UseCors("AllowAllOrigins");
+// 🔥 APLICAR CORS ANTES DE LOS CONTROLADORES
+app.UseCors("PermitirTodo");
 
-app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllers();
