@@ -9,22 +9,22 @@ using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configura la conexi髇 a la base de datos
+// Configura la conexi贸n a la base de datos
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Configura opciones (ejemplo: GoogleAI)
+// Configura opciones (por ejemplo, si us谩s opciones personalizadas como GoogleAI)
 builder.Services.Configure<GoogleAIOptions>(builder.Configuration.GetSection("GoogleAI"));
 
-// Agrega servicios de controladores y configuraci髇 JSON limpia (sin referencias circulares)
+// Agrega servicios de controladores con configuraci贸n JSON limpia
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        options.JsonSerializerOptions.ReferenceHandler = null; // sin Preserve
+        options.JsonSerializerOptions.ReferenceHandler = null;
         options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
     });
 
-// Registra Swagger
+// Registra Swagger (documentaci贸n de la API)
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -34,7 +34,7 @@ builder.Services.AddHttpClient();
 // Logging
 builder.Services.AddLogging();
 
-// Configura CORS para permitir todo (鷗il en desarrollo)
+// Configura CORS para permitir todo (煤til para frontend desplegado en otro dominio)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllOrigins", policy =>
@@ -47,25 +47,19 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Configuraci髇 para entorno de desarrollo
-if (app.Environment.IsDevelopment())
+// Activa Swagger tanto en desarrollo como en producci贸n
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// Deshabilitar la redirecci髇 a HTTPS para desarrollo local
-// Si no quieres usar HTTPS en desarrollo, puedes eliminar esta l韓ea
-// app.UseHttpsRedirection(); // Comenta o elimina esta l韓ea
-
-// Middleware
+// CORS (隆antes de routing!)
 app.UseCors("AllowAllOrigins");
 
 app.UseRouting();
 app.UseAuthorization();
 
-// Mapear los controladores
 app.MapControllers();
 
-// Ejecuta la aplicaci髇
 app.Run();
