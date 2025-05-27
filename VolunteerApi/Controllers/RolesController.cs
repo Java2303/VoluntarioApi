@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VolunteerApi.Models;
+using VolunteerApi.DTOs;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace VolunteerApi.Controllers
@@ -19,9 +21,16 @@ namespace VolunteerApi.Controllers
 
         // GET: api/roles
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Rol>>> GetRoles()
+        public async Task<ActionResult<IEnumerable<RoleDTO>>> GetRoles()
         {
-            var roles = await _context.Roles.ToListAsync();
+            var roles = await _context.Roles
+                .Select(r => new RoleDTO
+                {
+                    RolId = r.RolId,
+                    NombreRol = r.NombreRol
+                })
+                .ToListAsync();
+
             return Ok(roles);
         }
     }
