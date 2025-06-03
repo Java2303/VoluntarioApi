@@ -19,28 +19,32 @@ namespace VolunteerApi.Controllers
         }
 
         // GET: api/Voluntario
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<VoluntarioDTO>>> GetVoluntarios()
-        {
-            var voluntarios = await _context.Voluntarios
-                .Include(v => v.Usuario) // Incluye los datos de Usuario
-                .Include(v => v.Especialidad) // Incluye los datos de Especialidad
-                .ToListAsync();
+       // GET: api/Voluntario
+[HttpGet]
+public async Task<ActionResult<IEnumerable<VoluntarioDTO>>> GetVoluntarios()
+{
+    var voluntarios = await _context.Voluntarios
+        .Include(v => v.Usuario)
+        .Include(v => v.Especialidad)
+        .ToListAsync();
 
-            var voluntariosDTO = voluntarios.Select(v => new VoluntarioDTO
-            {
-                VoluntarioId = v.VoluntarioId,
-                Nombre = v.Usuario?.Nombre ?? "Sin nombre",
-                Apellido = v.Usuario?.Apellido ?? "Sin apellido",
-                Sexo = v.Sexo ?? "No especificado",
-                FechaNac = v.FechaNac,
-                Domicilio = v.Domicilio ?? "No especificado",
-                NumeroCelular = v.NumeroCelular ?? "No especificado",
-                Especialidad = v.Especialidad?.NombreEspecialidad ?? "Sin especialidad"
-            });
+    var voluntariosDTO = voluntarios.Select(v => new VoluntarioDTO
+    {
+        VoluntarioId = v.VoluntarioId,
+        Nombre = v.Usuario?.Nombre ?? "Sin nombre",
+        Apellido = v.Usuario?.Apellido ?? "Sin apellido",
+        Sexo = v.Sexo ?? "No especificado",
+        FechaNac = v.FechaNac,
+        Domicilio = v.Domicilio ?? "No especificado",
+        NumeroCelular = v.NumeroCelular ?? "No especificado",
+        Especialidad = v.Especialidad?.NombreEspecialidad ?? "Sin especialidad",
+        EspecialidadId = v.EspecialidadId, // ✅ Agregado aquí
+        UsuarioId = v.UsuarioId            // ✅ Agregado aquí
+    });
 
-            return Ok(voluntariosDTO);
-        }
+    return Ok(voluntariosDTO);
+}
+
 
         // GET: api/Voluntario/{id}
         [HttpGet("{id}")]
