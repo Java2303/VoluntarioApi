@@ -106,44 +106,41 @@ namespace VolunteerApi.Controllers
             var voluntarioDTO = request.Voluntario;
 
             if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+{
+    return BadRequest(ModelState);
+}
 
-            var usuario = new Usuario
-            {
-                Nombre = usuarioDTO.Nombre,
-                Apellido = usuarioDTO.Apellido,
-                Email = usuarioDTO.Email,
-                Contraseña = usuarioDTO.Contraseña, // sin hash
-                RolId = usuarioDTO.RolId ?? 2,
-                FechaRegistro = DateTime.Now
-            };
+var usuario = new Usuario
+{
+    Nombre = usuarioDTO.Nombre,
+    Apellido = usuarioDTO.Apellido,
+    Email = usuarioDTO.Email,
+    Contraseña = usuarioDTO.Contraseña, // sin hash
+    RolId = usuarioDTO.RolId ?? 2,
+    FechaRegistro = DateTime.Now
+};
 
-            _context.Usuarios.Add(usuario);
-            await _context.SaveChangesAsync();
+_context.Usuarios.Add(usuario);
+await _context.SaveChangesAsync();
 
-            if (usuario.RolId == 3 && voluntarioDTO != null)
-            {
-                var especialidad = await _context.Especialidades
-                    .FirstOrDefaultAsync(e => e.NombreEspecialidad == voluntarioDTO.Especialidad);
+if (usuario.RolId == 3 && voluntarioDTO != null)
+{
+    var voluntario = new Voluntario
+    {
+        UsuarioId = usuario.UsuarioId,
+        Sexo = voluntarioDTO.Sexo ?? "O",
+        FechaNac = voluntarioDTO.FechaNac,
+        Domicilio = voluntarioDTO.Domicilio ?? "",
+        NumeroCelular = voluntarioDTO.NumeroCelular ?? "",
+        EspecialidadId = voluntarioDTO.EspecialidadId // ahora se toma directamente del DTO
+    };
 
-                var voluntario = new Voluntario
-                {
-                    UsuarioId = usuario.UsuarioId,
-                    Sexo = voluntarioDTO.Sexo ?? "O",
-                    FechaNac = voluntarioDTO.FechaNac,
-                    Domicilio = voluntarioDTO.Domicilio ?? "",
-                    NumeroCelular = voluntarioDTO.NumeroCelular ?? "",
-                    EspecialidadId = especialidad?.EspecialidadId
-                };
+    _context.Voluntarios.Add(voluntario);
+    await _context.SaveChangesAsync();
+}
 
-                _context.Voluntarios.Add(voluntario);
-                await _context.SaveChangesAsync();
-            }
+return Ok(new { mensaje = "Usuario y voluntario registrados correctamente" });
 
-            return Ok(new { mensaje = "Usuario y voluntario registrados correctamente" });
-        }
 
         // POST: api/Usuarios/login
         [HttpPost("login")]
