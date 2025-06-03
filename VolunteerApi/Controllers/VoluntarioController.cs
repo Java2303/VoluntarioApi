@@ -47,31 +47,35 @@ public async Task<ActionResult<IEnumerable<VoluntarioDTO>>> GetVoluntarios()
 
 
         // GET: api/Voluntario/{id}
-        [HttpGet("{id}")]
-        public async Task<ActionResult<VoluntarioDTO>> GetVoluntario(int id)
-        {
-            var voluntario = await _context.Voluntarios
-                .Include(v => v.Usuario)
-                .Include(v => v.Especialidad)
-                .FirstOrDefaultAsync(v => v.VoluntarioId == id);
+       // GET: api/Voluntario/{id}
+[HttpGet("{id}")]
+public async Task<ActionResult<VoluntarioDTO>> GetVoluntario(int id)
+{
+    var voluntario = await _context.Voluntarios
+        .Include(v => v.Usuario)
+        .Include(v => v.Especialidad)
+        .FirstOrDefaultAsync(v => v.VoluntarioId == id);
 
-            if (voluntario == null)
-                return NotFound();
+    if (voluntario == null)
+        return NotFound();
 
-            var voluntarioDTO = new VoluntarioDTO
-            {
-                VoluntarioId = voluntario.VoluntarioId,
-                Nombre = voluntario.Usuario?.Nombre ?? "Sin nombre",
-                Apellido = voluntario.Usuario?.Apellido ?? "Sin apellido",
-                Sexo = voluntario.Sexo ?? "No especificado",
-                FechaNac = voluntario.FechaNac,
-                Domicilio = voluntario.Domicilio ?? "No especificado",
-                NumeroCelular = voluntario.NumeroCelular ?? "No especificado",
-                Especialidad = voluntario.Especialidad?.NombreEspecialidad ?? "Sin especialidad"
-            };
+    var voluntarioDTO = new VoluntarioDTO
+    {
+        VoluntarioId = voluntario.VoluntarioId,
+        Nombre = voluntario.Usuario?.Nombre ?? "Sin nombre",
+        Apellido = voluntario.Usuario?.Apellido ?? "Sin apellido",
+        Sexo = voluntario.Sexo ?? "No especificado",
+        FechaNac = voluntario.FechaNac,
+        Domicilio = voluntario.Domicilio ?? "No especificado",
+        NumeroCelular = voluntario.NumeroCelular ?? "No especificado",
+        Especialidad = voluntario.Especialidad?.NombreEspecialidad ?? "Sin especialidad",
+        EspecialidadId = voluntario.EspecialidadId, // este campo es clave
+        UsuarioId = voluntario.UsuarioId            // este también
+    };
 
-            return Ok(voluntarioDTO);
-        }
+    return Ok(voluntarioDTO);
+}
+
 
 
 
