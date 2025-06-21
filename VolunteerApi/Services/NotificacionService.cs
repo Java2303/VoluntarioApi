@@ -1,5 +1,7 @@
 using MongoDB.Driver;
 using VolunteerApi.Services;
+using VolunteerApi.Models;
+
 
 namespace VolunteerApi.Services
 {
