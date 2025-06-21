@@ -23,6 +23,8 @@
     <PackageReference Include="OpenAI" Version="2.1.0" />
     <PackageReference Include="OpenAI.net" Version="1.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="MongoDB.Driver" Version="2.20.0" />
+
   </ItemGroup>
 
 </Project>
