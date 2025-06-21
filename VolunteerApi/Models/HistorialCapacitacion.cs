@@ -18,6 +18,7 @@ public partial class HistorialCapacitacion
     public string? Estado { get; set; }
 
     public virtual Curso? Curso { get; set; }
+    public string? CertificadoUrl { get; set; }
 
     public virtual Voluntario? Voluntario { get; set; }
 }
