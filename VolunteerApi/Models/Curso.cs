@@ -16,6 +16,7 @@ public partial class Curso
     public string? Categoria { get; set; }
 
     public string? Dificultad { get; set; }
+    public string? ImagenUrl { get; set; }
 
     public virtual ICollection<HistorialCapacitacion> HistorialCapacitacions { get; set; } = new List<HistorialCapacitacion>();
 }
