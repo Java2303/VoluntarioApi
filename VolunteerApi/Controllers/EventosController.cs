@@ -11,6 +11,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using VolunteerApi.DTOs;
 using VolunteerApi.Models;
+using VolunteerApi.Services;
+
 
 namespace VolunteerApi.Controllers
 {
