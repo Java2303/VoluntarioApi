@@ -134,15 +134,8 @@ namespace VolunteerApi.Controllers
             await _context.SaveChangesAsync();
 
             // 🔔 Crear la notificación en MongoDB
-            var notificacion = new Notificacion
-            {
-                Titulo = "Nuevo Evento",
-                Mensaje = $"Se ha creado el evento '{nuevoEvento.NombreEvento}' para el {nuevoEvento.Fecha:dd/MM/yyyy}.",
-                Fecha = DateTime.UtcNow
-            };
-
-            await _notificacionService.CrearNotificacionAsync(notificacion);
-
+            var mensajeNotificacion = $"Se ha creado el evento '{nuevoEvento.NombreEvento}' para el {nuevoEvento.Fecha:dd/MM/yyyy}.";
+            await _notificacionService.CrearNotificacionAsync(mensajeNotificacion);
             return Ok(new { mensaje = "Evento creado exitosamente", eventoId = nuevoEvento.EventoId });
         }
 
