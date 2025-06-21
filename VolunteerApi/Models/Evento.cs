@@ -18,6 +18,7 @@ public partial class Evento
     public int? OrganizadorId { get; set; }
 
     public virtual Usuario? Organizador { get; set; }
+    public string? ImagenUrl { get; set; }
 
     public ICollection<VoluntarioEvento> VoluntariosEventos { get; set; }
     public virtual ICollection<Voluntario> Voluntarios { get; set; } = new List<Voluntario>();
