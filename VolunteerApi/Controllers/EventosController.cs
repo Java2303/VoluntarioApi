@@ -1,11 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -32,12 +30,10 @@ namespace VolunteerApi.Controllers
             ILogger<EventosController> logger, IHttpClientFactory httpClientFactory, IOptions<GoogleAIOptions> googleAIOptions)
         {
             _googleAIOptions = googleAIOptions.Value;
-
             _context = context;
             _config = config;
             _logger = logger;
             _httpClient = httpClientFactory.CreateClient();
-
             _apiKey = _googleAIOptions.ApiKey;
             _modeloGemini = _googleAIOptions.Model ?? "gemini-1.5-pro";
         }
@@ -55,6 +51,7 @@ namespace VolunteerApi.Controllers
                     Fecha = e.Fecha,
                     Ubicacion = e.Ubicacion,
                     Descripcion = e.Descripcion,
+                    ImagenUrl = e.ImagenUrl, // ← agregado
                     Organizador = e.Organizador == null ? null : new UsuarioCreateDTO
                     {
                         UsuarioId = e.Organizador.UsuarioId,
@@ -89,7 +86,8 @@ namespace VolunteerApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEvento(int id, Evento evento)
         {
-            if (id != evento.EventoId) return BadRequest();
+            if (id != evento.EventoId)
+                return BadRequest();
 
             _context.Entry(evento).State = EntityState.Modified;
 
@@ -105,13 +103,13 @@ namespace VolunteerApi.Controllers
                 else
                     throw;
             }
-
         }
 
         [HttpPost]
         public async Task<IActionResult> CrearEvento([FromBody] EventoCreateDTO dto)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             var nuevoEvento = new Evento
             {
@@ -119,6 +117,7 @@ namespace VolunteerApi.Controllers
                 Fecha = dto.Fecha,
                 Ubicacion = dto.Ubicacion,
                 Descripcion = dto.Descripcion,
+                ImagenUrl = dto.ImagenUrl, // ← agregado
                 OrganizadorId = dto.OrganizadorId
             };
 
@@ -132,7 +131,8 @@ namespace VolunteerApi.Controllers
         public async Task<IActionResult> DeleteEvento(int id)
         {
             var evento = await _context.Eventos.FindAsync(id);
-            if (evento == null) return NotFound();
+            if (evento == null)
+                return NotFound();
 
             _context.Eventos.Remove(evento);
             await _context.SaveChangesAsync();
