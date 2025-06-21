@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +23,7 @@ namespace VolunteerApi.Controllers
         public async Task<ActionResult<IEnumerable<Curso>>> GetCursos()
         {
             var cursos = await _context.Cursos.ToListAsync();
-            return Ok(cursos);  // Retorna el resultado con un código 200 OK
+            return Ok(cursos);
         }
 
         // GET: api/Cursos/5
@@ -33,22 +33,17 @@ namespace VolunteerApi.Controllers
             var curso = await _context.Cursos.FindAsync(id);
 
             if (curso == null)
-            {
-                return NotFound();  // Retorna un código 404 si no se encuentra el curso
-            }
+                return NotFound();
 
-            return Ok(curso);  // Devuelve el curso con un código 200 OK
+            return Ok(curso);
         }
 
         // PUT: api/Cursos/5
-        // Para protegerse de ataques de sobrecarga, es necesario validar que los datos sean correctos
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCurso(int id, Curso curso)
         {
             if (id != curso.CursoId)
-            {
-                return BadRequest();  // Retorna 400 Bad Request si los IDs no coinciden
-            }
+                return BadRequest();
 
             _context.Entry(curso).State = EntityState.Modified;
 
@@ -59,32 +54,25 @@ namespace VolunteerApi.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!CursoExists(id))
-                {
-                    return NotFound();  // Retorna 404 si el curso no existe
-                }
+                    return NotFound();
                 else
-                {
-                    throw;  // Propaga el error si ocurre una excepción inesperada
-                }
+                    throw;
             }
 
-            return NoContent();  // Retorna 204 No Content si la actualización es exitosa
+            return NoContent();
         }
 
         // POST: api/Cursos
-        // Para protegerse de ataques de sobrecarga, es necesario validar los datos de entrada
         [HttpPost]
         public async Task<ActionResult<Curso>> PostCurso(Curso curso)
         {
             if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);  // Retorna 400 si los datos no son válidos
-            }
+                return BadRequest(ModelState);
 
             _context.Cursos.Add(curso);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCurso", new { id = curso.CursoId }, curso);  // Retorna 201 Created con el curso recién creado
+            return CreatedAtAction("GetCurso", new { id = curso.CursoId }, curso);
         }
 
         // DELETE: api/Cursos/5
@@ -93,14 +81,12 @@ namespace VolunteerApi.Controllers
         {
             var curso = await _context.Cursos.FindAsync(id);
             if (curso == null)
-            {
-                return NotFound();  // Retorna 404 si no se encuentra el curso
-            }
+                return NotFound();
 
             _context.Cursos.Remove(curso);
             await _context.SaveChangesAsync();
 
-            return Ok(new { message = "Curso eliminado exitosamente." });  // Retorna 200 OK con un mensaje de éxito
+            return Ok(new { message = "Curso eliminado exitosamente." });
         }
 
         private bool CursoExists(int id)
