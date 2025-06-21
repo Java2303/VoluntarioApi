@@ -27,6 +27,7 @@ builder.Services.AddControllers()
 // Registra Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<NotificacionService>();
 
 // HttpClient
 builder.Services.AddHttpClient();
