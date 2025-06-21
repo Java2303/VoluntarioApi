@@ -18,8 +18,16 @@ namespace VolunteerApi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetNotificaciones()
         {
-            var notificaciones = await _notificacionService.ObtenerTodasAsync();
-            return Ok(notificaciones);
+            try
+            {
+                var notificaciones = await _notificacionService.ObtenerTodasAsync();
+                return Ok(notificaciones);
+            }
+            catch (Exception ex)
+            {
+                // Loguea ex.Message y ex.StackTrace aquí
+                return StatusCode(500, $"Error interno: {ex.Message}");
+            }
         }
     }
 }
