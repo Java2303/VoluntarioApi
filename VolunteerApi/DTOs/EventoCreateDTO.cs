@@ -6,6 +6,7 @@
         public DateOnly Fecha { get; set; }
         public string? Ubicacion { get; set; }
         public string? Descripcion { get; set; }
+        public string? ImagenUrl { get; set; }
 
         // Solo se necesita el ID del usuario que organiza
         public int OrganizadorId { get; set; }
