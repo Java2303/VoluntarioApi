@@ -6,15 +6,21 @@ using Microsoft.Extensions.Logging;
 using VolunteerApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using Alas_Chiquitanas.Models; // Asegúrate de que esté el namespace correcto
+using Alas_Chiquitanas.Services; // Si tienes el NotificacionService ahí
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configura la conexión a la base de datos
+// Configura la conexión a la base de datos SQL Server
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Configura opciones personalizadas si las tenés
+// Configura GoogleAI si lo usas
 builder.Services.Configure<GoogleAIOptions>(builder.Configuration.GetSection("GoogleAI"));
+
+// ⬇️ Agrega configuración de MongoDB
+builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
+builder.Services.AddSingleton<NotificacionService>();
 
 // Agrega servicios de controladores y configuración JSON limpia
 builder.Services.AddControllers()
@@ -24,10 +30,9 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
     });
 
-// Registra Swagger
+// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<NotificacionService>();
 
 // HttpClient
 builder.Services.AddHttpClient();
@@ -48,7 +53,7 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Activa Swagger en dev y prod
+// Swagger en Dev y Prod
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
@@ -56,6 +61,7 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 }
 
 app.UseCors("PermitirTodo");
+
 app.Use(async (context, next) =>
 {
     if (context.Request.Method == "OPTIONS")
@@ -70,7 +76,6 @@ app.Use(async (context, next) =>
 });
 
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
