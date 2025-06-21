@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using VolunteerApi.Models;
+using VolunteerApi.Services;
 
 namespace VolunteerApi.Controllers
 {
