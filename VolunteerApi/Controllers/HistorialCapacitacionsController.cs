@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -34,22 +34,17 @@ namespace VolunteerApi.Controllers
             var historialCapacitacion = await _context.HistorialCapacitacions.FindAsync(id);
 
             if (historialCapacitacion == null)
-            {
                 return NotFound();
-            }
 
             return historialCapacitacion;
         }
 
         // PUT: api/HistorialCapacitacions/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutHistorialCapacitacion(int id, HistorialCapacitacion historialCapacitacion)
         {
             if (id != historialCapacitacion.HistorialId)
-            {
                 return BadRequest();
-            }
 
             _context.Entry(historialCapacitacion).State = EntityState.Modified;
 
@@ -60,20 +55,15 @@ namespace VolunteerApi.Controllers
             catch (DbUpdateConcurrencyException)
             {
                 if (!HistorialCapacitacionExists(id))
-                {
                     return NotFound();
-                }
                 else
-                {
                     throw;
-                }
             }
 
             return NoContent();
         }
 
         // POST: api/HistorialCapacitacions
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<HistorialCapacitacion>> PostHistorialCapacitacion(HistorialCapacitacion historialCapacitacion)
         {
@@ -89,9 +79,7 @@ namespace VolunteerApi.Controllers
         {
             var historialCapacitacion = await _context.HistorialCapacitacions.FindAsync(id);
             if (historialCapacitacion == null)
-            {
                 return NotFound();
-            }
 
             _context.HistorialCapacitacions.Remove(historialCapacitacion);
             await _context.SaveChangesAsync();
