@@ -6,8 +6,8 @@ using Microsoft.Extensions.Logging;
 using VolunteerApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
-using Alas_Chiquitanas.Models; // Asegúrate de que esté el namespace correcto
-using Alas_Chiquitanas.Services; // Si tienes el NotificacionService ahí
+using VolunteerApi.Models; // Asegúrate de que esté el namespace correcto
+using VolunteerApi.Services; // Si tienes el NotificacionService ahí
 
 var builder = WebApplication.CreateBuilder(args);
 
