@@ -7,7 +7,7 @@
         public DateOnly Fecha { get; set; }
         public string? Ubicacion { get; set; }
         public string? Descripcion { get; set; }
-
+        public string? ImagenUrl { get; set; }
         // Datos básicos del organizador
         public UsuarioCreateDTO? Organizador { get; set; }
 
