@@ -16,14 +16,8 @@ namespace VolunteerApi.Services
             _notificaciones = database.GetCollection<NotificacionEvento>("Notificaciones");
         }
 
-        public async Task CrearNotificacionAsync(string mensaje)
+        public async Task CrearNotificacionAsync(NotificacionEvento notificacion)
         {
-            var notificacion = new NotificacionEvento
-            {
-                Mensaje = mensaje,
-                Fecha = DateTime.UtcNow
-            };
-
             await _notificaciones.InsertOneAsync(notificacion);
         }
 
