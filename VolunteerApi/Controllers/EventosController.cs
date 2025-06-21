@@ -25,9 +25,15 @@ namespace VolunteerApi.Controllers
         private readonly string _apiKey;
         private readonly GoogleAIOptions _googleAIOptions;
         private readonly string _modeloGemini;
+        private readonly NotificacionService _notificacionService;
 
-        public EventosController(AppDbContext context, IConfiguration config,
-            ILogger<EventosController> logger, IHttpClientFactory httpClientFactory, IOptions<GoogleAIOptions> googleAIOptions)
+        public EventosController(
+            AppDbContext context,
+            IConfiguration config,
+            ILogger<EventosController> logger,
+            IHttpClientFactory httpClientFactory,
+            IOptions<GoogleAIOptions> googleAIOptions,
+            NotificacionService notificacionService)
         {
             _googleAIOptions = googleAIOptions.Value;
             _context = context;
@@ -36,6 +42,7 @@ namespace VolunteerApi.Controllers
             _httpClient = httpClientFactory.CreateClient();
             _apiKey = _googleAIOptions.ApiKey;
             _modeloGemini = _googleAIOptions.Model ?? "gemini-1.5-pro";
+            _notificacionService = notificacionService;
         }
 
         [HttpGet]
@@ -51,7 +58,7 @@ namespace VolunteerApi.Controllers
                     Fecha = e.Fecha,
                     Ubicacion = e.Ubicacion,
                     Descripcion = e.Descripcion,
-                    ImagenUrl = e.ImagenUrl, // ← agregado
+                    ImagenUrl = e.ImagenUrl,
                     Organizador = e.Organizador == null ? null : new UsuarioCreateDTO
                     {
                         UsuarioId = e.Organizador.UsuarioId,
@@ -117,12 +124,22 @@ namespace VolunteerApi.Controllers
                 Fecha = dto.Fecha,
                 Ubicacion = dto.Ubicacion,
                 Descripcion = dto.Descripcion,
-                ImagenUrl = dto.ImagenUrl, // ← agregado
+                ImagenUrl = dto.ImagenUrl,
                 OrganizadorId = dto.OrganizadorId
             };
 
             _context.Eventos.Add(nuevoEvento);
             await _context.SaveChangesAsync();
+
+            // 🔔 Crear la notificación en MongoDB
+            var notificacion = new Notificacion
+            {
+                Titulo = "Nuevo Evento",
+                Mensaje = $"Se ha creado el evento '{nuevoEvento.NombreEvento}' para el {nuevoEvento.Fecha:dd/MM/yyyy}.",
+                Fecha = DateTime.UtcNow
+            };
+
+            await _notificacionService.CrearNotificacionAsync(notificacion);
 
             return Ok(new { mensaje = "Evento creado exitosamente", eventoId = nuevoEvento.EventoId });
         }
