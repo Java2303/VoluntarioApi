@@ -40,27 +40,28 @@ namespace VolunteerApi.Controllers
 
         // PUT: api/Cursos/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCurso(int id, Curso curso)
+        public async Task<IActionResult> PutCurso(int id, CursoDto cursoDto)
         {
-            if (id != curso.CursoId)
+            if (id != cursoDto.CursoId)
                 return BadRequest();
-
-            _context.Entry(curso).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CursoExists(id))
-                    return NotFound();
-                else
-                    throw;
-            }
-
+        
+            var curso = await _context.Cursos.FindAsync(id);
+            if (curso == null)
+                return NotFound();
+        
+            // Actualizar solo las propiedades permitidas
+            curso.Nombre = cursoDto.Nombre;
+            curso.FechaInicio = cursoDto.FechaInicio;
+            curso.FechaFin = cursoDto.FechaFin;
+            curso.Categoria = cursoDto.Categoria;
+            curso.Dificultad = cursoDto.Dificultad;
+            curso.ImagenUrl = cursoDto.ImagenUrl;
+        
+            await _context.SaveChangesAsync();
+        
             return NoContent();
         }
+
 
         // POST: api/Cursos
         [HttpPost]
