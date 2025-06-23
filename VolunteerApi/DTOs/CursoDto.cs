@@ -1,4 +1,4 @@
-namespace VolunteerApi.Dtos;
+namespace VolunteerApi.DTOs;
 
 public class CursoDto
 {
