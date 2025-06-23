@@ -17,6 +17,7 @@ public partial class Curso
 
     public string? Dificultad { get; set; }
     public string? ImagenUrl { get; set; }
-
+    
+    [JsonIgnore] 
     public virtual ICollection<HistorialCapacitacion> HistorialCapacitacions { get; set; } = new List<HistorialCapacitacion>();
 }
