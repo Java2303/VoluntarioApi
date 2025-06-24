@@ -39,7 +39,7 @@ namespace VolunteerApi.Controllers
             return Ok(curso);
         }
 
-        // PUT: api/Cursos/5
+        /// PUT: api/Cursos/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCurso(int id, CursoDTO cursoDto)
         {
@@ -50,10 +50,10 @@ namespace VolunteerApi.Controllers
             if (curso == null)
                 return NotFound();
         
-            // Actualiza los campos
+            // ✅ Conversión explícita de DateTime a DateOnly
             curso.Nombre = cursoDto.Nombre;
-            curso.FechaInicio = cursoDto.FechaInicio;
-            curso.FechaFin = cursoDto.FechaFin;
+            curso.FechaInicio = DateOnly.FromDateTime(cursoDto.FechaInicio);
+            curso.FechaFin = DateOnly.FromDateTime(cursoDto.FechaFin);
             curso.Categoria = cursoDto.Categoria;
             curso.Dificultad = cursoDto.Dificultad;
             curso.ImagenUrl = cursoDto.ImagenUrl;
@@ -72,6 +72,7 @@ namespace VolunteerApi.Controllers
         
             return NoContent();
         }
+
 
         // POST: api/Cursos
         [HttpPost]
